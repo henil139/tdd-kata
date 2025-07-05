@@ -14,5 +14,17 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
         assertEquals(0, calculator.add(""));
     }
+	
+    @Test
+    void add_singleNumber_returnsThatNumber() {
+        Calculator calculator = new Calculator();
+        assertEquals(1, calculator.add("1"));
+    }
+
+    @Test
+    void add_twoCommaSeparatedNumbers_returnsTheirSum() {
+        Calculator calculator = new Calculator();
+        assertEquals(6, calculator.add("1,5"));
+    }
 
 }
