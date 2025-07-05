@@ -44,6 +44,14 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
         assertEquals(3, calculator.add("//;\n1;2"));
     }
+    @Test
+    void add_negativeNumbers_throwsExceptionWithAllNegatives() {
+        Calculator calculator = new Calculator();
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            calculator.add("2,-4,3,-5");
+        });
 
+        assertEquals("negative numbers not allowed: -4, -5", exception.getMessage());
+    }
 
 }
