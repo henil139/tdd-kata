@@ -26,5 +26,24 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
         assertEquals(6, calculator.add("1,5"));
     }
+    
+    @Test
+    void add_multipleCommaSeparatedNumbers_returnsTheirSum() {
+        Calculator calculator = new Calculator();
+        assertEquals(15, calculator.add("2,4,3,6"));
+    }
+    
+    @Test
+    void add_numbersWithNewlines_returnsTheirSum() {
+        Calculator calculator = new Calculator();
+        assertEquals(6, calculator.add("1\n2,3"));
+    }
+
+    @Test
+    void add_customSemicolonDelimiter_returnsSum() {
+        Calculator calculator = new Calculator();
+        assertEquals(3, calculator.add("//;\n1;2"));
+    }
+
 
 }
